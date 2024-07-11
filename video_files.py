@@ -22,7 +22,10 @@ class GPVideo:
     def __lt__(self, num):
         return self.video_number < num
     def __str__(self):
-        return "%s: %s" % (self.video_number, self.filenames)
+        s=""
+        for i,f in enumerate(self.filenames):
+            s += "%s (#%d): %s\n" % (self.video_number, i, f)
+        return s
     def add_video(self, filename):
         self.filenames.append(filename)
 
@@ -59,6 +62,11 @@ class GPVideoFolder:
             for k, v in d.items():
                 self.vdict[k] = GPVideo(k, v)            
             
+    def __str__(self):
+        s=""
+        for gpv in self.all_gpvideos():
+            s += str(gpv)
+        return s
     def all_filenames(self):
         '''
         Returns a list of all video filenames (no path, string) in this folder.  
