@@ -41,31 +41,21 @@ Successfully installed ffmpeg-python-0.2.0 future-1.0.0
 A few examples of useful commands and/or tasks.
 
 ```
-$ First example
-$ Second example
-$ And keep this in mind
+import video_files as vf
+import process_video_files as pvf
+
+# raw videos copied from the camera are in this folder. 
+gpvf=vf.GPVideoFolder('C:/Users/djsperka/Desktop/raw');
+
+# Process the videos.
+# pvf.concatenate_all_gpvideos(gpvf, 'label1', 'label2', output_folder, dry-run-tf)
+# Args:
+# gpvf - a GPVideoFolder object
+# label1, label2 - output filename is 'label1_creationdate_label2.mp4'. Both label1 and label2 are also
+#                  part of the overlay text written on the output video.
+# output_folder - folder where output mp4 files are placed.
+# dry-run-tf - if True, then just a dry-run; no output files are written. If False, then create output mp4 files.
+# 
+pvf.concatenate_all_gpvideos(gpvf, 'multiple', 'PairTraining', 'c:/Users/djsperka/Desktop/out', False)
 ```
 
-## Deployment
-
-Additional notes on how to deploy this on a live or release system. Explaining the most important branches, what pipelines they trigger and how to update the database (if anything special).
-
-### Server
-
-* Live:
-* Release:
-* Development:
-
-### Branches
-
-* Master:
-* Feature:
-* Bugfix:
-* etc...
-
-## Additional Documentation and Acknowledgments
-
-* Project folder on server:
-* Confluence link:
-* Asana board:
-* etc...
